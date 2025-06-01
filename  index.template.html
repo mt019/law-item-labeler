@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>法規條文項次顯示器</title>
+<title>法規條文項次顯示器 v{{version}}</title>
   <style>
     :root {
       --main-color: #f48fb1;
@@ -63,11 +62,16 @@
     .btn-install:hover {
       background: var(--hover-color);
     }
+    .version {
+      font-size: 0.9em;
+      color: #999;
+      margin-top: 2em;
+    }
   </style>
 </head>
 <body>
 
-  <h1>法規條文項次顯示器（v1.8）</h1>
+  <h1>法規條文項次顯示器</h1>
 
   <p>本使用者腳本適用於 <a href="https://law.moj.gov.tw/" target="_blank">全國法規資料庫</a>，可自動在條文中插入「第 X 項」標示。</p>
 
@@ -92,43 +96,7 @@
     GitHub 專案頁：<a href="https://github.com/mt019/law-item-labeler" target="_blank">mt019/law-item-labeler</a>
   </p>
 
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
+  <div class="version">目前版本：v{{version}}</div>
+
 </body>
 </html>
