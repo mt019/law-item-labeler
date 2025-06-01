@@ -1,6 +1,6 @@
 {
   "name": "law-item-labeler",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "顯示『第 X 項』標示於全國法規資料庫，不破壞原始對齊",
   "author": "mt019",
   "license": "MIT",
