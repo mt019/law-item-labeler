@@ -10,22 +10,24 @@
 
 - 自動插入「第 X 項」標示
 - 不影響條文原始排版與對齊
-- 自動隱藏原本的 ::before 數字
+- 自動隱藏原本的 `::before` 號碼
 - 內建右上角切換按鈕（顯示／隱藏 項次）
 - 採用 monospace 字體（Consolas），強化可讀性
 - 架構模組化，便於維護與擴充
 
 ## 適用網站
 
-- https://law.moj.gov.tw/LawClass/LawAll.aspx*
-- https://law.moj.gov.tw/LawClass/LawSingle.aspx*
+- `https://law.moj.gov.tw/LawClass/LawAll.aspx*`
+- `https://law.moj.gov.tw/LawClass/LawSingle.aspx*`
 
-## 安裝方式
+## 🚀 安裝方式
 
-1. 安裝 [Tampermonkey](https://www.tampermonkey.net/)（建議使用）
+1. 安裝 [Tampermonkey 擴充套件](https://www.tampermonkey.net/)（建議使用）
 2. 點擊下方連結安裝腳本：
 
-   [安裝腳本](./dist/law-item-label.user.js)
+   👉 [點我安裝](https://mt019.github.io/law-item-labeler/law-item-label.user.js)
+
+> 本腳本將自動在全國法規資料庫頁面中標示每一項，方便閱讀與複製。
 
 ## 預覽畫面
 
