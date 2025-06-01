@@ -1,0 +1,12 @@
+# 自動產生的打包成品（不應 commit）
+dist/
+
+# Node.js 套件與快取
+node_modules/
+npm-debug.log*
+
+# 編輯器 / 作業系統快取
+.DS_Store
+.vscode/
+.idea/
+

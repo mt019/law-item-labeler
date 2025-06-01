@@ -1,5 +1,3 @@
-// src/main.js
-
 import { insertItemLabels, removeItemLabels } from './injectLabel.js';
 import { createToggleButton } from './uiButton.js';
 

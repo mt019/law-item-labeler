@@ -1,5 +1,3 @@
-// src/injectLabel.js
-
 let styleNode = null;
 
 export function insertItemLabels() {

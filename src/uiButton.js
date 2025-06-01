@@ -1,5 +1,3 @@
-// src/uiButton.js
-
 export function createToggleButton(removeFn, insertFn) {
   const btn = document.createElement('button');
   btn.textContent = '隱藏項次';
