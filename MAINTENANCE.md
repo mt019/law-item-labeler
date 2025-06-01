@@ -1,90 +1,70 @@
-# 專案維護流程：law-item-labeler
+# MAINTENANCE.md
 
-## 一、日常修改
-
-### 1. 修改腳本功能
-請修改下列模組檔案：
-- `src/main.js`
-- `src/injectLabel.js`
-- `src/uiButton.js`
-
-### 2. 修改預覽頁樣式或說明
-請編輯：
-- `index.template.html`（支援版本自動插入）
+法規條文項次顯示器（law-item-labeler）維護流程說明  
+最後更新：2025-06-01 21:53:58
 
 ---
 
-## 二、發佈新版本
-
-### 1. 選擇版本號
-根據修改幅度選擇其一：
+## 🚀 發布版本流程（建議順序）
 
 ```bash
-npm version patch   # 小改（ex: v1.9.1 → v1.9.2）
-npm version minor   # 中改（ex: v1.9.2 → v1.10.0）
-npm version major   # 大改（ex: v1.10.0 → v2.0.0）
-```
+# 1. 升級版本號（依照修改內容選擇 patch / minor / major）
+npm version patch
 
-### 2. 自動打包 + 發布：
-
-```bash
+# 2. 自動打包 + 建立 commit + 建立 tag + 推送（會觸發 GitHub Actions）
 npm run release
-```
 
-這將會：
-
-- 自動執行 `build.js` 打包 `.user.js` 與 `index.html`
-- 自動插入當前版本號
-- 自動 Git commit + tag + push
-- 自動觸發 GitHub Actions：
-  - `release.yml` 建立 GitHub Release（附檔案）
-  - `build-and-deploy.yml` 更新 GitHub Pages
-
----
-
-## 三、發生錯誤怎麼辦？
-
-### 發布時出現錯誤：tag 已存在
-
-```bash
-fatal: tag 'v1.x.x' already exists
-```
-
-執行以下指令手動推送該版本 tag：
-
-```bash
-git push origin v1.x.x
+# 3. 確保把本地的 main 與 tags 推上遠端
+git push
+git push --tags
 ```
 
 ---
 
-## 四、額外命令
+## 🤖 自動化內容
 
-| 指令 | 說明 |
-|------|------|
-| `npm run build` | 手動打包 `.user.js` + 預覽頁 |
-| `npm run release` | 自動 commit + tag + push（需先執行 `npm version ...`） |
+### `.github/workflows/build-and-deploy.yml`
+
+- 每次 push 到 `main` 時執行
+- 自動執行 `npm run build`
+- 將打包後的 `dist/` 部署至 GitHub Pages
+
+### `.github/workflows/release.yml`
+
+- 當 push 的 tag 以 `v` 開頭（如 `v1.9.2`）時執行
+- 會：
+  - 安裝依賴
+  - 執行 `npm run build`
+  - 上傳 `dist/` 內以下檔案至 GitHub Release
+    - `law-item-label.user.js`
+    - `index.html`
+    - `preview/image.png`
 
 ---
 
-## 五、檔案結構概要
+## 📁 專案目錄說明
 
 ```
-.
-├── dist/                   # 打包後產物（發佈用）
+├── dist/                   # 編譯輸出目錄
 │   ├── law-item-label.user.js
 │   ├── index.html
 │   └── preview/image.png
-├── src/                   # 原始模組碼
+├── src/                   # 原始碼模組
 │   ├── injectLabel.js
-│   ├── main.js
-│   └── uiButton.js
-├── index.template.html    # index.html 模板（含 {{version}}）
-├── build.js               # 打包與版本處理腳本
-├── metadata.user.js       # UserScript 標頭模板
-├── package.json           # NPM 腳本設定與版本管理
-├── .github/workflows/
-│   ├── build-and-deploy.yml
-│   └── release.yml
-└── README.md              # 專案簡介與安裝方式
+│   ├── uiButton.js
+│   └── main.js
+├── build.js               # 自訂建置腳本（組合模組 + 插入版本）
+├── metadata.user.js       # 使用者腳本的 metadata block
+├── index.template.html    # HTML 模板，含 {version} 變數
+├── LICENSE
+├── README.md
+├── MAINTENANCE.md         # 維護文件
+└── package.json           # 版本號、scripts、套件資訊
 ```
+
+---
+
+## 🔄 VS Code 注意事項
+
+- 若看到 `Sync Changes ↑` 代表尚未 push 的提交，記得按下或手動 `git push`
+- 每次版本釋出請確認 tags 也同步：`git push --tags`
