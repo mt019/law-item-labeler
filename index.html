@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>法規條文項次顯示器</title>
+  <style>
+    :root {
+      --main-color: #f48fb1;
+      --text-color: #333;
+      --bg-color: #fff8fb;
+      --border-color: #e5bcd0;
+      --hover-color: #ec6f9a;
+    }
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      margin: 2em auto;
+      max-width: 700px;
+      padding: 0 1em;
+      line-height: 1.7;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+    h1 {
+      color: var(--main-color);
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+    a {
+      color: var(--main-color);
+      text-decoration: none;
+    }
+    a:hover {
+      color: var(--hover-color);
+      text-decoration: underline;
+    }
+    code {
+      background: #f2dce6;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+    }
+    ul {
+      padding-left: 1.3em;
+    }
+    img.preview {
+      width: 100%;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      margin-top: 1em;
+    }
+    .btn-install {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 0.6em 1em;
+      font-weight: bold;
+      background: var(--main-color);
+      color: white;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .btn-install:hover {
+      background: var(--hover-color);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>法規條文項次顯示器（v1.8）</h1>
+
+  <p>本使用者腳本適用於 <a href="https://law.moj.gov.tw/" target="_blank">全國法規資料庫</a>，可自動在條文中插入「第 X 項」標示。</p>
+
+  <ul>
+    <li>不影響條文原始排版與對齊</li>
+    <li>使用 <code>&lt;span&gt;</code> 元素，支援複製、換行穩定</li>
+    <li>提供顯示／隱藏項次的切換按鈕</li>
+    <li>模組化架構，方便維護與擴充</li>
+  </ul>
+
+  <h2>🚀 安裝腳本</h2>
+  <p>請先安裝 <a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a> 擴充套件，再點擊下方按鈕進行安裝：</p>
+
+  <a class="btn-install" href="./law-item-label.user.js">點我安裝使用者腳本</a>
+
+  <h2>🔍 預覽畫面</h2>
+  <img class="preview" src="./preview/image.png" alt="預覽畫面" />
+
+  <h2>📄 授權與原始碼</h2>
+  <p>
+    授權方式：MIT License<br>
+    GitHub 專案頁：<a href="https://github.com/mt019/law-item-labeler" target="_blank">mt019/law-item-labeler</a>
+  </p>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

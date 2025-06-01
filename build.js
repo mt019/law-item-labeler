@@ -39,5 +39,9 @@ fs.writeFileSync(outFile, result, 'utf-8');
 console.log(`✅ 打包完成 → ${outFile}`);
 
 // 複製 index.html 到 dist/
-fs.copyFileSync(indexSrc, indexDest);
-console.log(`✅ 已複製 index.html → ${indexDest}`);
+if (fs.existsSync(indexSrc)) {
+  fs.copyFileSync(indexSrc, indexDest);
+  console.log(`✅ 已複製 index.html → ${indexDest}`);
+} else {
+  console.warn('⚠️ 找不到 index.html，略過複製');
+}
