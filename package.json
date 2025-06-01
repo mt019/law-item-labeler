@@ -5,6 +5,7 @@
   "author": "mt019",
   "license": "MIT",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "release": "npm run build && git add . && git commit -m \"🔖 v$npm_package_version\" && git tag v$npm_package_version && git push && git push --tags"
   }
 }
