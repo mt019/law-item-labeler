@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "node build.js",
-    "release": "npm run build && git add . && git commit -m \"🔖 v$npm_package_version\" && git tag v$npm_package_version && git push && git push --tags"
+    "prepare": "npm run build",
+    "release": "git add . && git commit -m \"🔖 v$npm_package_version\" || echo 'No changes to commit' && git tag v$npm_package_version && git push && git push --tags"
   }
 }
