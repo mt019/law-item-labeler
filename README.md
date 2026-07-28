@@ -1,5 +1,7 @@
 # 法規條文項次顯示器
 
+*Law Item Labeler — a userscript for Taiwan's Laws & Regulations Database (全國法規資料庫). The site paints each paragraph number with a CSS `::before`, so selecting a provision copies the text without its numbering. This inserts real text elements instead, leaving the original layout alone. Install from <https://phenomcanvas.com/scripts/law-item-labeler.user.js>; the rest of this page is in Chinese.*
+
 ## 簡介
 
 本使用者腳本專為 [全國法規資料庫](https://law.moj.gov.tw/) 設計，能自動為條文中的每一項插入「第 X 項」標示。
@@ -38,6 +40,13 @@
 圖片可見 `preview/` 資料夾：
 
 ![預覽畫面](preview/image.png)
+
+## 另外兩支
+
+- [fjud-userscript](https://github.com/mt019/fjud-userscript)——在任何頁面選中文字，按快捷鍵直接開司法院裁判書系統並送出查詢。
+- [social-auto-expand-userscript](https://github.com/mt019/social-auto-expand-userscript)——LinkedIn 與 Facebook 動態的「查看更多」自動展開。
+
+三支都列在 <https://phenomcanvas.com/userscripts>。
 
 ## 使用授權
 
