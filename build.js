@@ -6,7 +6,11 @@ const path = require('path');
 const pkg = require('./package.json');
 const srcDir = path.join(__dirname, 'src');
 const distDir = path.join(__dirname, 'dist');
-const outFile = path.join(distDir, 'law-item-label.user.js');
+// 正式檔名跟著 repo 名走，也是 phenomcanvas.com/scripts/ 上的檔名。
+const outFile = path.join(distDir, 'law-item-labeler.user.js');
+// 舊檔名：1.9.2 以前是從 GitHub Pages 的這個網址安裝的，已安裝的副本靠它拿到
+// 帶 @updateURL 的那一版，之後才會轉去 phenomcanvas。內容與正式檔完全相同，別刪。
+const legacyOutFile = path.join(distDir, 'law-item-label.user.js');
 const templateHTML = path.join(__dirname, 'index.template.html');
 const outputHTML = path.join(distDir, 'index.html');
 const previewSrc = path.join(__dirname, 'preview');
@@ -33,7 +37,9 @@ for (const file of files) {
 const result = `${metadata}\n\n(function () {${combined}\n})();\n`;
 if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
 fs.writeFileSync(outFile, result, 'utf-8');
+fs.writeFileSync(legacyOutFile, result, 'utf-8');
 console.log(`✅ 打包完成 → ${outFile}`);
+console.log(`✅ 舊檔名同內容 → ${legacyOutFile}`);
 
 // 4. generate index.html from template
 if (fs.existsSync(templateHTML)) {

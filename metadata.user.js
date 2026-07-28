@@ -4,6 +4,10 @@
 // @version      0.0.0
 // @description  僅插入「第 X 項」文字於原位置，完全不影響正文對齊，取代原本 ::before 數字顯示方式
 // @author       mt019
+// @homepageURL  https://phenomcanvas.com/userscripts/law-item-labeler
+// @supportURL   https://github.com/mt019/law-item-labeler/issues
+// @updateURL    https://phenomcanvas.com/scripts/law-item-labeler.user.js
+// @downloadURL  https://phenomcanvas.com/scripts/law-item-labeler.user.js
 // @match        https://law.moj.gov.tw/LawClass/LawAll.aspx*
 // @match        https://law.moj.gov.tw/LawClass/LawSingle.aspx*
 // @grant        none

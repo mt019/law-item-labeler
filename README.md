@@ -25,9 +25,13 @@
 1. 安裝 [Tampermonkey 擴充套件](https://www.tampermonkey.net/)（建議使用）
 2. 點擊下方連結安裝腳本：
 
-   👉 [點我安裝](https://mt019.github.io/law-item-labeler/law-item-label.user.js)
+   👉 [點我安裝](https://phenomcanvas.com/scripts/law-item-labeler.user.js)
 
 > 本腳本將自動在全國法規資料庫頁面中標示每一項，方便閱讀與複製。
+
+那個網址同時是腳本的 `@updateURL`，裝好的副本從此固定查它，不管當初是從哪裡裝的。1.9.2 以前是從 GitHub Pages 的 `law-item-label.user.js` 裝的，那個檔名仍然照樣產出、內容與正式檔相同，會在下一次更新檢查把舊副本交給上面那個網址。
+
+落地頁：<https://phenomcanvas.com/userscripts/law-item-labeler>。
 
 ## 預覽畫面
 

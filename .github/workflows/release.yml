@@ -29,6 +29,7 @@ jobs:
         with:
           generate_release_notes: true
           files: |
+            dist/law-item-labeler.user.js
             dist/law-item-label.user.js
             dist/index.html
             dist/preview/image.png

@@ -21,6 +21,27 @@ git push --tags
 
 ---
 
+## 📦 正式安裝檔在哪裡
+
+正式安裝檔是 `https://phenomcanvas.com/scripts/law-item-labeler.user.js`，也就是腳本自己宣告的
+`@updateURL`／`@downloadURL`。它的來源是 canvas 倉庫的 `public/scripts/law-item-labeler.user.js`。
+
+發版時 `npm run release` 之外還要多一步——**跑同步，不要手動複製**：
+
+```bash
+node sync-to-canvas.mjs --canvas ../../1142/my-canvas-lab   # 路徑照你機器上的位置
+```
+
+它會重新打包、把 `dist/law-item-labeler.user.js` 送進 canvas 的 `public/scripts/`，並回寫
+`src/data/userscripts.json` 的版號、`@match`、`@grant`。**canvas 只管前端**：那三個欄位是這個倉
+的事實，不在 canvas 手改；落地頁的介紹文字與版本紀錄才是 canvas 那邊寫的，同步不碰它們。
+
+漏掉這一步，站上寫著新版號、使用者永遠拿到舊檔，兩邊都不會報錯——所以 canvas 那邊有
+`npm run validate:userscripts` 逐欄比對，同步完跑一次。
+
+`dist/law-item-label.user.js`（少一個 `er`）是 1.9.2 以前的檔名，GitHub Pages 仍然照樣端出來，
+內容與正式檔完全相同，作用是讓已安裝的舊副本拿到帶 `@updateURL` 的版本後自己轉過去。別刪。
+
 ## 🤖 自動化內容
 
 ### `.github/workflows/build-and-deploy.yml`
@@ -36,7 +57,8 @@ git push --tags
   - 安裝依賴
   - 執行 `npm run build`
   - 上傳 `dist/` 內以下檔案至 GitHub Release
-    - `law-item-label.user.js`
+    - `law-item-labeler.user.js`
+    - `law-item-label.user.js`（舊檔名，同內容）
     - `index.html`
     - `preview/image.png`
 
@@ -46,7 +68,8 @@ git push --tags
 
 ```
 ├── dist/                   # 編譯輸出目錄
-│   ├── law-item-label.user.js
+│   ├── law-item-labeler.user.js   # 正式檔名
+│   ├── law-item-label.user.js     # 舊檔名，同內容，給 1.9.2 以前的安裝
 │   ├── index.html
 │   └── preview/image.png
 ├── src/                   # 原始碼模組
