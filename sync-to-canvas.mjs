@@ -1,10 +1,12 @@
-// 把打包好的腳本送進 canvas（phenomcanvas.com 的前端倉），並回寫它在落地頁資料裡的
-// 那幾個事實欄位。
+// 把這支腳本的事實欄位（版號、@match、@grant）回寫進 canvas 落地頁的資料檔。
 //
-// 為什麼要有這支：正式安裝檔的網址是 https://phenomcanvas.com/scripts/law-item-labeler.user.js，
-// 檔案實際端出來的地方在 canvas 的 public/scripts/。這個倉是那個檔的來源，canvas 只負責
-// 端出去與畫落地頁——所以搬運要有一支腳本，不能靠人記得複製。手動複製漏掉的話，站上寫著
-// 新版號、使用者永遠拿到舊檔，而且兩邊都不會報錯。
+// 2026-08-06 改：以前這裡還會把 .user.js 複製進 canvas 的 public/scripts/，讓
+// phenomcanvas.com 當安裝與更新來源。那使整個網域被 Google Safe Browsing 標成不實網頁
+// （散布會自我更新的瀏覽器可執行程式碼），連子網域一起被蓋到。安裝與更新已移回
+// GitHub Pages，canvas 只負責落地頁的內容、不放安裝檔——複製的動作因此刪掉了，別加回去，
+// canvas 的 validate:userscripts 會擋下來。
+//
+// 落地頁的版號仍要跟著這裡走：站上寫著新版號、Pages 上還是舊檔的話，兩邊都不會報錯。
 //
 // 事實欄位（版號、@match、@grant）由這裡回寫，文案欄位（介紹、每條 @match 為什麼要、
 // 版本紀錄）是 canvas 那邊的東西，不碰。
@@ -13,7 +15,7 @@
 //       （或設 CANVAS_REPO 環境變數。路徑不寫進檔案裡——每台機器擺的位置不一樣。）
 
 import { execFileSync } from 'node:child_process';
-import { copyFileSync, readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -31,8 +33,6 @@ if (!canvasArg) {
 const CANVAS = resolve(process.cwd(), canvasArg);
 
 execFileSync('node', [join(HERE, 'build.js')], { stdio: 'inherit' });
-copyFileSync(BUILT, join(CANVAS, 'public', 'scripts', FILE));
-console.log(`已送出 → ${join(CANVAS, 'public', 'scripts', FILE)}`);
 
 const source = readFileSync(BUILT, 'utf8');
 const meta = {};

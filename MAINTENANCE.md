@@ -23,7 +23,7 @@ git push --tags
 
 ## 📦 正式安裝檔在哪裡
 
-正式安裝檔是 `https://phenomcanvas.com/scripts/law-item-labeler.user.js`，也就是腳本自己宣告的
+正式安裝檔是 `https://mt019.github.io/law-item-labeler/law-item-labeler.user.js`，也就是腳本自己宣告的
 `@updateURL`／`@downloadURL`。它的來源是 canvas 倉庫的 `public/scripts/law-item-labeler.user.js`。
 
 發版時 `npm run release` 之外還要多一步——**跑同步，不要手動複製**：

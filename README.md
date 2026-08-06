@@ -1,6 +1,6 @@
 # 法規條文項次顯示器
 
-*Law Item Labeler — a userscript for Taiwan's Laws & Regulations Database (全國法規資料庫). The site paints each paragraph number with a CSS `::before`, so selecting a provision copies the text without its numbering. This inserts real text elements instead, leaving the original layout alone. Install from <https://phenomcanvas.com/scripts/law-item-labeler.user.js>; the rest of this page is in Chinese.*
+*Law Item Labeler — a userscript for Taiwan's Laws & Regulations Database (全國法規資料庫). The site paints each paragraph number with a CSS `::before`, so selecting a provision copies the text without its numbering. This inserts real text elements instead, leaving the original layout alone. Install from <https://mt019.github.io/law-item-labeler/law-item-labeler.user.js>; the rest of this page is in Chinese.*
 
 ## 簡介
 
@@ -27,7 +27,7 @@
 1. 安裝 [Tampermonkey 擴充套件](https://www.tampermonkey.net/)（建議使用）
 2. 點擊下方連結安裝腳本：
 
-   👉 [點我安裝](https://phenomcanvas.com/scripts/law-item-labeler.user.js)
+   👉 [點我安裝](https://mt019.github.io/law-item-labeler/law-item-labeler.user.js)
 
 > 本腳本將自動在全國法規資料庫頁面中標示每一項，方便閱讀與複製。
 

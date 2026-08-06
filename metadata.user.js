@@ -6,8 +6,8 @@
 // @author       mt019
 // @homepageURL  https://phenomcanvas.com/userscripts/law-item-labeler
 // @supportURL   https://github.com/mt019/law-item-labeler/issues
-// @updateURL    https://phenomcanvas.com/scripts/law-item-labeler.user.js
-// @downloadURL  https://phenomcanvas.com/scripts/law-item-labeler.user.js
+// @updateURL    https://mt019.github.io/law-item-labeler/law-item-labeler.user.js
+// @downloadURL  https://mt019.github.io/law-item-labeler/law-item-labeler.user.js
 // @match        https://law.moj.gov.tw/LawClass/LawAll.aspx*
 // @match        https://law.moj.gov.tw/LawClass/LawSingle.aspx*
 // @grant        none
